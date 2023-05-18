@@ -1,9 +1,9 @@
 package com.noteapp.noteservice.model.entity;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Repository("noteItems")
+@Document(collection = "notes")
 public class Note {
     @Id
     private String id;

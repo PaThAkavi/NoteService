@@ -2,6 +2,8 @@ package com.noteapp.noteservice.controller;
 
 import com.noteapp.noteservice.model.entity.Note;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.noteapp.noteservice.service.NotesService;
 
@@ -30,5 +32,15 @@ public class NotesController {
     @PutMapping("/notes")
     public Note editNote(@RequestBody Note note) {
         return notesService.editNote(note);
+    }
+
+    @DeleteMapping("/note/{id}")
+    public ResponseEntity<HttpStatus> deleteNote (@PathVariable String id) {
+        try{
+            notesService.deleteNote(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

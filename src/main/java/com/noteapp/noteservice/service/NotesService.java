@@ -8,4 +8,6 @@ public interface NotesService {
     public Optional<Note> getNote(String id);
     public Note addNote(Note note);
     public Note editNote(Note note);
+
+    public void deleteNote(String id);
 }

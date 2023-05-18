@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -46,5 +47,14 @@ public class NotesServiceImpl implements NotesService {
             }
         }
         return note;
+    }
+
+    @Override
+    public void deleteNote(String id) {
+        notes.forEach(note -> {
+            if(Objects.equals(note.getId(), id)) {
+                notes.remove(note);
+            }
+        });
     }
 }

@@ -28,7 +28,7 @@ public class NotesController {
     }
 
     @PutMapping("/notes")
-    public Note editNote(@PathVariable String id) {
-        return notesService.editNote(id);
+    public Note editNote(@RequestBody Note note) {
+        return notesService.editNote(note);
     }
 }

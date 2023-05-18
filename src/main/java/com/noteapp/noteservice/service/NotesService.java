@@ -7,5 +7,5 @@ public interface NotesService {
     public List<Note> getAllNotes();
     public Optional<Note> getNote(String id);
     public Note addNote(Note note);
-    public Note editNote(String id);
+    public Note editNote(Note note);
 }

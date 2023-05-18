@@ -38,15 +38,13 @@ public class NotesServiceImpl implements NotesService {
 
     @Override
     public Note editNote(Note note) {
-        Note noteItem = null;
         for (Note item: notes) {
             if(item.getId().equals(note.getId())) {
                 item.setTitle(note.getTitle());
                 item.setBody(note.getBody());
-                noteItem = item;
                 break;
             }
         }
-        return noteItem;
+        return note;
     }
 }

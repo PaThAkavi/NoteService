@@ -16,7 +16,6 @@ public class NotesServiceImpl implements NotesService {
 
     @Override
     public List<Note> getAllNotes() {
-//        return notes;
         return noteDao.findAll();
     }
 

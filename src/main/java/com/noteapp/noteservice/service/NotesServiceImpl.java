@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class NotesServiceImpl implements NotesService {
@@ -51,10 +52,6 @@ public class NotesServiceImpl implements NotesService {
 
     @Override
     public void deleteNote(String id) {
-        notes.forEach(note -> {
-            if(Objects.equals(note.getId(), id)) {
-                notes.remove(note);
-            }
-        });
+        notes = notes.stream().filter(note -> !Objects.equals(note.getId(), id)).collect(Collectors.toList());
     }
 }

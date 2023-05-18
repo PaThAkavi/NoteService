@@ -1,6 +1,11 @@
 package com.noteapp.noteservice.model.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Repository;
+
+@Repository("noteItems")
 public class Note {
+    @Id
     private String id;
     private String title;
     private String body;
